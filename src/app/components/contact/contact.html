@@ -1,0 +1,216 @@
+<div class="ambient-glow glow-top-left"></div>
+<div class="ambient-glow glow-bottom-right"></div>
+
+<!-- 1. CONTACT HERO -->
+<section class="section-100vh text-center">
+  <div class="container animate-fade-in-up">
+    <span class="badge bg-dark border border-secondary text-gradient-primary px-3 py-2 mb-3 rounded-pill uppercase fw-bold">
+      Get In Touch
+    </span>
+    <h1 class="display-3 fw-bold text-white mb-4">
+      Let's Code Your <span class="text-gradient-theme">Vision</span>
+    </h1>
+    <p class="lead text-muted mx-auto mb-5" style="max-width: 700px;">
+      No sales pitches, no automated templates. Just direct conversation about clean code and tailored design.
+    </p>
+    <a href="#contact-workspace" class="btn-theme btn-theme-primary">
+      Start Briefing <i class="bi bi-chevron-down"></i>
+    </a>
+  </div>
+</section>
+
+<!-- 2. CONTACT WORKSPACE -->
+<section id="contact-workspace" class="section-100vh">
+  <div class="container">
+    <div class="row g-5">
+      
+      <!-- Left side: Contact Form -->
+      <div class="col-lg-6">
+        <div class="glass-card h-100">
+          @if (submitted()) {
+            <!-- Form Success Banner -->
+            <div class="text-center py-5 animate-fade-in-up">
+              <i class="bi bi-check-circle-fill display-1 text-gradient-primary mb-4"></i>
+              <h3 class="text-white mb-3">Message Received!</h3>
+              <p class="text-muted mb-4">
+                Thank you for reaching out, {{ name() }}. We will read your briefing and contact you at {{ email() }} within 12 hours.
+              </p>
+              <button (click)="resetForm()" class="btn-theme btn-theme-secondary">
+                Send Another Message <i class="bi bi-arrow-counterclockwise"></i>
+              </button>
+            </div>
+          } @else {
+            <h3 class="h3 text-white mb-3">Project Briefing</h3>
+            <p class="text-muted mb-4">Fill out the fields below and we'll schedule a custom layout session.</p>
+            
+            <form (submit)="onSubmitForm($event)">
+              <!-- Name Input -->
+              <div class="form-group-custom">
+                <input 
+                  type="text" 
+                  id="contact-name"
+                  class="form-control-custom" 
+                  placeholder=" " 
+                  required
+                  [ngModel]="name()" 
+                  (ngModelChange)="name.set($event)"
+                  name="name">
+                <label for="contact-name" class="form-label-custom">Your Name</label>
+              </div>
+
+              <!-- Email Input -->
+              <div class="form-group-custom">
+                <input 
+                  type="email" 
+                  id="contact-email"
+                  class="form-control-custom" 
+                  placeholder=" " 
+                  required
+                  [ngModel]="email()" 
+                  (ngModelChange)="email.set($event)"
+                  name="email">
+                <label for="contact-email" class="form-label-custom">Email Address</label>
+              </div>
+
+              <!-- Message Input -->
+              <div class="form-group-custom">
+                <textarea 
+                  id="contact-message"
+                  class="form-control-custom" 
+                  placeholder=" " 
+                  required
+                  [ngModel]="message()" 
+                  (ngModelChange)="message.set($event)"
+                  name="message"></textarea>
+                <label for="contact-message" class="form-label-custom">Tell us about your project</label>
+              </div>
+
+              <!-- Submit button -->
+              <button type="submit" class="btn-theme btn-theme-primary w-100 py-3">
+                Send Briefing <span class="btn-theme-circle"><i class="bi bi-send-fill"></i></span>
+              </button>
+            </form>
+          }
+        </div>
+      </div>
+
+      <!-- Right side: Transparency Pricing Estimator -->
+      <div class="col-lg-6">
+        <div class="estimator-panel h-100">
+          <h3 class="estimator-title text-white">
+            <span class="text-gradient-secondary">Transparency</span> Estimator
+          </h3>
+          <p class="small text-muted mb-4">
+            We value honesty and clarity. Use this tool to get an immediate estimate of pricing and timeline for your custom hand-coded project.
+          </p>
+
+          <!-- Pages Slider -->
+          <div class="estimator-slider-group">
+            <div class="d-flex justify-content-between text-muted small mb-2">
+              <span>Total Unique Pages</span>
+              <span class="text-white fw-bold">{{ pageCount() }} Pages</span>
+            </div>
+            <input 
+              type="range" 
+              id="estimator-range"
+              class="form-range-custom" 
+              min="1" 
+              max="20" 
+              [value]="pageCount()"
+              (input)="onPageCountChange($event)">
+          </div>
+
+          <!-- Feature Toggles -->
+          <div class="estimator-options-grid">
+            <div 
+              class="option-checkbox-card" 
+              [class.selected]="includeEcom()"
+              (click)="toggleEcom()">
+              <div class="option-icon-checkbox">
+                @if (includeEcom()) {
+                  <i class="bi bi-check-lg"></i>
+                }
+              </div>
+              <div>
+                <h5 class="small text-white mb-0">E-Commerce</h5>
+                <span class="small text-muted" style="font-size: 0.75rem;">+$800</span>
+              </div>
+            </div>
+
+            <div 
+              class="option-checkbox-card" 
+              [class.selected]="includeBlog()"
+              (click)="toggleBlog()">
+              <div class="option-icon-checkbox">
+                @if (includeBlog()) {
+                  <i class="bi bi-check-lg"></i>
+                }
+              </div>
+              <div>
+                <h5 class="small text-white mb-0">Insights/Blog</h5>
+                <span class="small text-muted" style="font-size: 0.75rem;">+$400</span>
+              </div>
+            </div>
+
+            <div 
+              class="option-checkbox-card" 
+              [class.selected]="includeSEO()"
+              (click)="toggleSEO()">
+              <div class="option-icon-checkbox">
+                @if (includeSEO()) {
+                  <i class="bi bi-check-lg"></i>
+                }
+              </div>
+              <div>
+                <h5 class="small text-white mb-0">Premium SEO</h5>
+                <span class="small text-muted" style="font-size: 0.75rem;">+$250</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Estimator Results -->
+          <div class="estimator-results-box mt-4">
+            <p class="small text-muted uppercase mb-1 fw-bold tracking-wider">Estimated Project Investment</p>
+            <div class="estimator-price">${{ estimatedPrice() }}</div>
+            <div class="text-secondary small">
+              Estimated Timeline: <strong>{{ estimatedDuration() }} Business Days</strong>
+            </div>
+            <p class="small text-muted mt-3 mb-0" style="font-size: 0.75rem;">
+              * No subscriptions or recurring theme fees. Hosting configs and SSL setup included.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 3. CONTACT INFO PANEL -->
+<section class="section-100vh bg-dark border-bottom border-secondary">
+  <div class="container">
+    <div class="row g-4 text-center">
+      <div class="col-md-4">
+        <div class="glass-card py-4">
+          <div class="btn-theme-circle mb-3"><i class="bi bi-envelope-fill"></i></div>
+          <h4 class="text-white h5 mb-2">Email Briefings</h4>
+          <p class="small text-muted mb-0">{{ contactEmail() }}</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="glass-card py-4">
+          <div class="btn-theme-circle mb-3"><i class="bi bi-telephone-fill"></i></div>
+          <h4 class="text-white h5 mb-2">Direct Line</h4>
+          <p class="small text-muted mb-0">{{ phone() }}</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="glass-card py-4">
+          <div class="btn-theme-circle mb-3"><i class="bi bi-geo-alt-fill"></i></div>
+          <h4 class="text-white h5 mb-2">Studio Coordinates</h4>
+          <p class="small text-muted mb-0">{{ address() }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,473 @@
+<!-- Ambient BG glows for NFT-like atmosphere -->
+<div class="ambient-glow glow-top-left"></div>
+<div class="ambient-glow glow-bottom-right"></div>
+
+<!-- 1. HERO SECTION -->
+<section class="section-100vh d-flex align-items-center">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <!-- Left Hero Column -->
+      <div class="col-lg-6 animate-fade-in-up">
+        <span class="badge bg-dark border border-secondary text-gradient-primary px-3 py-2 mb-3 rounded-pill uppercase fw-bold tracking-wider">
+          <i class="bi bi-code-square me-2"></i> Hand-Coded Web Studio
+        </span>
+        <h1 class="display-3 fw-extrabold text-white mb-3">
+          <span class="text-gradient-theme">{{ companyName() }}</span>
+        </h1>
+        <h2 class="h3 text-white fw-medium mb-4">
+          {{ tagline() }}
+        </h2>
+        <p class="lead text-muted mb-5">
+          We strip away page-builder bloat to hand-craft lightning-fast websites with clean semantic code, tailored designs, and outstanding SEO rankings.
+        </p>
+        
+        <div class="d-flex flex-wrap gap-3 mb-5">
+          <a routerLink="/contact" class="btn-theme btn-theme-primary">
+            Start a Project <span class="btn-theme-circle"><i class="bi bi-arrow-right-short"></i></span>
+          </a>
+          <a routerLink="/portfolio" class="btn-theme btn-theme-secondary">
+            View Our Work <i class="bi bi-collection-play-fill"></i>
+          </a>
+        </div>
+
+        <!-- Statistics -->
+        <div class="row g-4 pt-4 border-top border-secondary">
+          @for (stat of stats(); track stat.label) {
+            <div class="col-4">
+              <h3 class="h2 text-white fw-bold mb-1">{{ stat.count }}</h3>
+              <p class="small text-muted mb-0">{{ stat.label }}</p>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Right Hero Column: Tilted visual showcase from image reference -->
+      <div class="col-lg-6 d-flex justify-content-center align-items-center position-relative">
+        <div class="ambient-glow glow-center"></div>
+        <div class="floating-collage-container">
+          <div class="collage-rotated-card">
+            <div class="collage-image-grid">
+              <!-- Grid Items representing handcrafted screens using stylized vectors -->
+              <div class="collage-item d-flex align-items-center justify-content-center">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100" height="100" fill="#140f30"/>
+                  <circle cx="50" cy="50" r="30" fill="url(#hero-art-g1)" />
+                  <defs>
+                    <linearGradient id="hero-art-g1" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#F2443F" />
+                      <stop offset="100%" stop-color="#A653BA" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <div class="collage-item">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100" height="100" fill="#1b1240"/>
+                  <path d="M20 80 L50 20 L80 80 Z" fill="url(#hero-art-g2)" />
+                  <defs>
+                    <linearGradient id="hero-art-g2" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#A653BA" />
+                      <stop offset="100%" stop-color="#543C9E" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <div class="collage-item">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100" height="100" fill="#110d29"/>
+                  <rect x="25" y="25" width="50" height="50" rx="10" fill="url(#hero-art-g3)" />
+                  <defs>
+                    <linearGradient id="hero-art-g3" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stop-color="#543C9E" />
+                      <stop offset="100%" stop-color="#F2443F" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <div class="collage-item">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100" height="100" fill="#0d0a21"/>
+                  <circle cx="35" cy="50" r="15" fill="#F2443F" opacity="0.8"/>
+                  <circle cx="65" cy="50" r="20" fill="#A653BA" opacity="0.6"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sub-hero Banner Info -->
+<div class="py-4 bg-dark border-bottom border-secondary text-center">
+  <div class="container">
+    <p class="mb-0 fs-5 text-gradient-secondary fw-semibold">
+      Real websites, hand-coded, built to last. Browse our capabilities below.
+    </p>
+  </div>
+</div>
+
+<!-- 2. ABOUT US SECTION -->
+<section id="about" class="section-100vh">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="position-relative">
+          <div class="ambient-glow glow-top-left" style="opacity: 0.2;"></div>
+          <div class="glass-card">
+            <h3 class="h4 text-white mb-3">Genuine Digital Craftsmanship</h3>
+            <p class="mb-4">
+              We work directly with businesses and brands who want a website that's fast, unique, and actually theirs — not a copy-paste site that looks like a thousand others.
+            </p>
+            <div class="d-flex align-items-center gap-3">
+              <div class="btn-theme-circle"><i class="bi bi-check-lg"></i></div>
+              <div>
+                <h5 class="mb-0 text-white">No Bloated Templates</h5>
+                <p class="small text-muted mb-0">Clean semantic coding only.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h2 class="section-title text-gradient-primary">About Us</h2>
+        <p class="lead text-white mb-4">
+          Stackline is a web development studio built on one simple idea: real websites, hand-coded, built to last.
+        </p>
+        <p class="text-muted mb-4">
+          In a market flooded with drag-and-drop builders, we go back to fundamentals — clean code, real performance, and designs built specifically for your business, not pulled from a template library.
+        </p>
+        <a routerLink="/about" class="btn-theme btn-theme-secondary">
+          Read Our Story <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. WHY STACKLINE / PERFORMANCE SIMULATOR SECTION -->
+<section class="section-100vh">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title text-gradient-theme">Why Stackline?</h2>
+      <p class="section-subtitle">
+        Visual comparison of custom hand-coded structures against typical drag-and-drop website builders.
+      </p>
+    </div>
+
+    <div class="row g-5">
+      <!-- Left side: Metric Simulator controls & bars -->
+      <div class="col-lg-6">
+        <div class="glass-card">
+          <h3 class="h4 text-white mb-4">Performance & Load comparison</h3>
+          
+          <!-- Metric Selectors -->
+          <div class="d-flex gap-2 mb-4">
+            <button 
+              class="filter-btn" 
+              [class.active]="activeComparisonMetric() === 'speed'"
+              (click)="setMetric('speed')">
+              Loading Time
+            </button>
+            <button 
+              class="filter-btn" 
+              [class.active]="activeComparisonMetric() === 'size'"
+              (click)="setMetric('size')">
+              Asset Weight
+            </button>
+            <button 
+              class="filter-btn" 
+              [class.active]="activeComparisonMetric() === 'requests'"
+              (click)="setMetric('requests')">
+              HTTP Requests
+            </button>
+          </div>
+
+          <!-- Simulator Bars -->
+          @if (activeComparisonMetric() === 'speed') {
+            <div class="metric-bar-wrapper">
+              <div class="metric-label">
+                <span class="text-white">Stackline Studio (Hand-coded)</span>
+                <span class="text-success fw-bold">{{ performanceMetrics().speed.stacklineVal }}</span>
+              </div>
+              <div class="metric-bar-bg">
+                <div class="metric-bar-fill success" style="width: 10%"></div>
+              </div>
+            </div>
+            <div class="metric-bar-wrapper">
+              <div class="metric-label">
+                <span class="text-muted">Typical Website Builder</span>
+                <span class="text-muted">{{ performanceMetrics().speed.builderVal }}</span>
+              </div>
+              <div class="metric-bar-bg">
+                <div class="metric-bar-fill danger" style="width: 100%"></div>
+              </div>
+            </div>
+            <p class="small text-muted mt-3">
+              * Hand-coded sites skip massive database queries and unoptimized modules, rendering pages in under a half-second.
+            </p>
+          } @else if (activeComparisonMetric() === 'size') {
+            <div class="metric-bar-wrapper">
+              <div class="metric-label">
+                <span class="text-white">Stackline Studio (Hand-coded)</span>
+                <span class="text-success fw-bold">{{ performanceMetrics().size.stacklineVal }}</span>
+              </div>
+              <div class="metric-bar-bg">
+                <div class="metric-bar-fill success" style="width: 5%"></div>
+              </div>
+            </div>
+            <div class="metric-bar-wrapper">
+              <div class="metric-label">
+                <span class="text-muted">Typical Website Builder</span>
+                <span class="text-muted">{{ performanceMetrics().size.builderVal }}</span>
+              </div>
+              <div class="metric-bar-bg">
+                <div class="metric-bar-fill danger" style="width: 100%"></div>
+              </div>
+            </div>
+            <p class="small text-muted mt-3">
+              * Clean, semantic markup keeps package weights in kilobytes instead of megabytes, saving cellular data costs.
+            </p>
+          } @else if (activeComparisonMetric() === 'requests') {
+            <div class="metric-bar-wrapper">
+              <div class="metric-label">
+                <span class="text-white">Stackline Studio (Hand-coded)</span>
+                <span class="text-success fw-bold">{{ performanceMetrics().requests.stacklineVal }}</span>
+              </div>
+              <div class="metric-bar-bg">
+                <div class="metric-bar-fill success" style="width: 8%"></div>
+              </div>
+            </div>
+            <div class="metric-bar-wrapper">
+              <div class="metric-label">
+                <span class="text-muted">Typical Website Builder</span>
+                <span class="text-muted">{{ performanceMetrics().requests.builderVal }}</span>
+              </div>
+              <div class="metric-bar-bg">
+                <div class="metric-bar-fill danger" style="width: 100%"></div>
+              </div>
+            </div>
+            <p class="small text-muted mt-3">
+              * Visual page builders fetch dozens of third-party plugins and stylesheet hooks. Hand-coding keeps networking minimal.
+            </p>
+          }
+        </div>
+      </div>
+
+      <!-- Right side: Lighthouse and Key Points -->
+      <div class="col-lg-6">
+        <h3 class="h3 text-white mb-4">Optimized for Speed and SEO</h3>
+        <p class="text-muted mb-4">
+          A website is only as valuable as its performance. Stackline projects achieve perfect scores because they are crafted line-by-line.
+        </p>
+
+        <div class="row g-4 mb-4">
+          @for (diff of differences(); track diff.title) {
+            <div class="col-sm-6">
+              <div class="d-flex gap-3 align-items-start">
+                <div class="btn-theme-circle bg-dark border border-secondary text-primary mt-1">
+                  <i class="bi" [class]="diff.icon"></i>
+                </div>
+                <div>
+                  <h5 class="text-white mb-1">{{ diff.title }}</h5>
+                  <p class="small text-muted mb-0">{{ diff.desc }}</p>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Lighthouse Panel -->
+        <div class="glass-card py-3">
+          <div class="lighthouse-grid">
+            @for (panel of lighthousePanels(); track panel.title) {
+              <div>
+                <div class="lighthouse-circle success">
+                  <div class="lighthouse-circle-inner">{{ panel.score }}</div>
+                </div>
+                <div class="lighthouse-label">{{ panel.title }}</div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. MISSION & VISION SECTION -->
+<section class="section-100vh">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <h2 class="section-title text-gradient-primary">Our Mission & Vision</h2>
+        <p class="lead text-muted mb-4">
+          Standing out in an era of automated, mass-produced web content.
+        </p>
+        <div class="mb-5">
+          <h3 class="h4 text-white mb-2"><i class="bi bi-compass-fill me-2 text-primary"></i> Our Mission</h3>
+          <p class="text-muted">
+            To build fast, reliable, and fully custom websites — coded by hand, not generated by a machine — that help businesses stand out and grow online.
+          </p>
+        </div>
+        <div>
+          <h3 class="h4 text-white mb-2"><i class="bi bi-eye-fill me-2 text-secondary"></i> Our Vision</h3>
+          <p class="text-muted">
+            To become a trusted name for businesses who want genuine craftsmanship in their digital presence, at a time when most of the web is being mass-produced by automated tools.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="glass-card position-relative overflow-hidden text-center py-5">
+          <div class="ambient-glow glow-center" style="opacity: 0.15;"></div>
+          <i class="bi bi-patch-check-fill display-2 text-gradient-theme mb-4"></i>
+          <h3 class="text-white mb-3">Genuine Digital Craftsmanship</h3>
+          <p class="text-muted px-4">
+            We return to the core foundations of engineering: clean code, semantic structure, and responsive optimization.
+          </p>
+          <a routerLink="/process" class="btn-theme btn-theme-primary mt-3">
+            See Our Process <i class="bi bi-gear-fill"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. OUR VALUES SECTION -->
+<section id="values" class="section-100vh">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title text-gradient-secondary">Our Values</h2>
+      <p class="section-subtitle">
+        How we approach web development. No bloated frameworks, no shortcuts, no exceptions.
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      @for (val of values(); track val.title) {
+        <div class="col-lg-4 col-md-6">
+          <div class="glass-card h-100">
+            <div class="btn-theme-circle mb-4">
+              <i class="bi" [class]="val.icon"></i>
+            </div>
+            <h4 class="h5 text-white mb-3">{{ val.title }}</h4>
+            <p class="small text-muted mb-0">{{ val.text }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- 6. OUR TEAM SECTION -->
+<section id="team" class="section-100vh">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title text-gradient-theme">Our Team</h2>
+      <p class="section-subtitle">
+        The artisans writing the code and crafting the user experiences.
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      @for (member of team(); track member.name) {
+        <div class="col-lg-4 col-md-6">
+          <div class="glass-card team-member-card h-100">
+            <div class="team-avatar-frame">
+              <div class="team-avatar-inner">
+                <i class="bi bi-person-fill display-3"></i>
+              </div>
+            </div>
+            <h4 class="text-white mb-1">{{ member.name }}</h4>
+            <p class="small text-secondary mb-3">{{ member.role }}</p>
+            <p class="small text-muted mb-0">{{ member.bio }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- 7. TESTIMONIALS SECTION -->
+<section class="section-100vh">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title text-gradient-primary">Client Feedback</h2>
+      <p class="section-subtitle">
+        What businesses say about our speed-oriented, custom approach.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      @for (test of testimonials(); track test.author) {
+        <div class="col-md-6">
+          <div class="testimonial-card">
+            <i class="bi bi-quote quote-icon"></i>
+            <p class="fs-5 text-light mb-4">
+              "{{ test.quote }}"
+            </p>
+            <h5 class="text-white mb-1">{{ test.author }}</h5>
+            <p class="small text-secondary mb-0">{{ test.company }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- 8. FAQ SECTION -->
+<section class="section-100vh">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-5">
+        <h2 class="section-title text-gradient-secondary">Frequently Asked Questions</h2>
+        <p class="lead text-muted mb-4">
+          Everything you need to know about our hand-coded design studio model.
+        </p>
+        <p class="small text-muted">
+          Don't see your question? Contact hello&#64;stackline.io and we'll reply within 12 hours.
+        </p>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="faq-accordion-group">
+          @for (faq of faqs(); track $index) {
+            <div class="faq-accordion-item" [class.expanded]="activeFaq() === $index">
+              <div class="faq-header" (click)="toggleFaq($index)">
+                <h4 class="text-white">{{ faq.q }}</h4>
+                <span class="text-secondary">
+                  @if (activeFaq() === $index) {
+                    <i class="bi bi-dash-lg"></i>
+                  } @else {
+                    <i class="bi bi-plus-lg"></i>
+                  }
+                </span>
+              </div>
+              <div class="faq-body">
+                <p class="mb-0 text-muted">{{ faq.a }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. CTA SECTION -->
+<section class="section-100vh d-flex align-items-center">
+  <div class="container text-center">
+    <div class="glass-card py-5 position-relative overflow-hidden">
+      <div class="ambient-glow glow-center" style="opacity: 0.15;"></div>
+      <h2 class="display-4 fw-bold text-white mb-3">Ready to escape the templates?</h2>
+      <p class="lead text-muted mx-auto mb-5" style="max-width: 600px;">
+        Let's build a fast, unique, and secure website that actually belongs to your business. Let's make you stand out.
+      </p>
+      <a routerLink="/contact" class="btn-theme btn-theme-primary px-5 py-3">
+        Let's Craft Together <span class="btn-theme-circle"><i class="bi bi-envelope-fill"></i></span>
+      </a>
+    </div>
+  </div>
+</section>

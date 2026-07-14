@@ -1,0 +1,67 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container">
+      <!-- Logo matching the user-provided design -->
+      <a class="navbar-brand navbar-brand-logo" routerLink="/" (click)="closeMenu()">
+        <svg class="stacked-logo-svg" width="34" height="28" viewBox="0 0 45 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logo-grad-top" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#F2443F" />
+              <stop offset="100%" stop-color="#A653BA" />
+            </linearGradient>
+            <linearGradient id="logo-grad-middle" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#A653BA" />
+              <stop offset="100%" stop-color="#543C9E" />
+            </linearGradient>
+            <linearGradient id="logo-grad-bottom" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#543C9E" />
+              <stop offset="100%" stop-color="#160f2b" />
+            </linearGradient>
+          </defs>
+          <!-- Floating Dot -->
+          <circle cx="28" cy="4" r="3.5" class="logo-pill-dot" />
+          <!-- Top Pill -->
+          <rect x="0" y="8" width="22" height="7" rx="3.5" class="logo-pill-top" />
+          <!-- Middle Pill -->
+          <rect x="0" y="17" width="28" height="7" rx="3.5" class="logo-pill-middle" />
+          <!-- Bottom Pill -->
+          <rect x="0" y="26" width="34" height="7" rx="3.5" class="logo-pill-bottom" />
+        </svg>
+        <span>{{ companyName() }}</span>
+      </a>
+
+      <!-- Mobile toggle button -->
+      <button 
+        class="navbar-toggler border-0" 
+        type="button" 
+        (click)="toggleMenu()" 
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isMenuOpen()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Nav links -->
+      <div class="collapse navbar-collapse" [class.show]="isMenuOpen()">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          @for (item of navItems(); track item.path) {
+            <li class="nav-item">
+              <a 
+                class="nav-link" 
+                [routerLink]="item.path" 
+                routerLinkActive="active" 
+                [routerLinkActiveOptions]="{exact: item.path === '/'}"
+                (click)="closeMenu()">
+                {{ item.label }}
+              </a>
+            </li>
+          }
+        </ul>
+        <div class="d-none d-lg-block ms-3">
+          <a class="btn-theme btn-theme-primary py-2 px-4 fs-6" routerLink="/contact" (click)="closeMenu()">
+            Get Started <i class="bi bi-arrow-right-short"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

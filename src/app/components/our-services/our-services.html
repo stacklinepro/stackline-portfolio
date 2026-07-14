@@ -1,0 +1,88 @@
+<div class="ambient-glow glow-top-left"></div>
+<div class="ambient-glow glow-bottom-right"></div>
+
+<!-- 1. SERVICES HERO -->
+<section class="section-100vh text-center">
+  <div class="container animate-fade-in-up">
+    <span class="badge bg-dark border border-secondary text-gradient-primary px-3 py-2 mb-3 rounded-pill uppercase fw-bold">
+      Capabilities
+    </span>
+    <h1 class="display-3 fw-bold text-white mb-4">
+      Our <span class="text-gradient-theme">Services</span>
+    </h1>
+    <p class="lead text-muted mx-auto mb-5" style="max-width: 700px;">
+      We construct high-speed, secure, and fully customized digital interfaces. Explore what we do best.
+    </p>
+    <a href="#services-grid" class="btn-theme btn-theme-primary">
+      Explore Capabilities <i class="bi bi-arrow-down"></i>
+    </a>
+  </div>
+</section>
+
+<!-- 2. SERVICES GRID -->
+<section id="services-grid" class="section-100vh">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title text-gradient-secondary">Bespoke Design & Development</h2>
+      <p class="section-subtitle">
+        Click on any card to read a detailed breakdown of our execution strategies.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      @for (srv of services(); track srv.id) {
+        <div class="col-md-6 col-lg-3">
+          <div 
+            class="glass-card h-100 cursor-pointer text-center" 
+            [class.border-secondary]="$index === selectedService()"
+            [style.background]="$index === selectedService() ? 'rgba(166, 83, 186, 0.08)' : ''"
+            (click)="selectService($index)">
+            <div class="btn-theme-circle mb-3">
+              <i class="bi" [class]="srv.icon"></i>
+            </div>
+            <h4 class="h5 text-white mb-3">{{ srv.title }}</h4>
+            <p class="small text-muted mb-0">{{ srv.desc }}</p>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Interactive Details Panel -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="glass-card position-relative overflow-hidden">
+          <div class="ambient-glow glow-center" style="opacity: 0.1;"></div>
+          <div class="row align-items-center">
+            <div class="col-md-2 text-center text-md-start mb-3 mb-md-0">
+              <div class="btn-theme-circle bg-dark border border-secondary text-primary fs-3 p-4">
+                <i class="bi" [class]="services()[selectedService()].icon"></i>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <h3 class="h4 text-white mb-2">{{ services()[selectedService()].title }}</h3>
+              <p class="lead text-gradient-primary mb-3">How We Deliver Excellence</p>
+              <p class="text-muted mb-0">
+                {{ services()[selectedService()].details }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SERVICES CTA -->
+<section class="section-100vh">
+  <div class="container text-center">
+    <div class="glass-card py-5">
+      <h2 class="text-white mb-4">Need a tailor-made digital asset?</h2>
+      <p class="lead text-muted mx-auto mb-5" style="max-width: 600px;">
+        We don't do pre-made libraries. Contact our team to schedule a custom design briefing.
+      </p>
+      <a routerLink="/contact" class="btn-theme btn-theme-primary px-5 py-3">
+        Let's Get Started <i class="bi bi-chevron-right"></i>
+      </a>
+    </div>
+  </div>
+</section>

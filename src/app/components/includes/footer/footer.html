@@ -1,0 +1,87 @@
+<footer class="footer-custom">
+  <div class="container">
+    <div class="row g-4 mb-5">
+      <!-- About Stackline Block -->
+      <div class="col-lg-4 col-md-6">
+        <a class="navbar-brand-logo mb-3" routerLink="/">
+          <svg class="stacked-logo-svg" width="34" height="28" viewBox="0 0 45 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="8" width="22" height="7" rx="3.5" class="logo-pill-top" />
+            <rect x="0" y="17" width="28" height="7" rx="3.5" class="logo-pill-middle" />
+            <rect x="0" y="26" width="34" height="7" rx="3.5" class="logo-pill-bottom" />
+            <circle cx="28" cy="4" r="3.5" class="logo-pill-dot" />
+          </svg>
+          <span>{{ companyName() }}</span>
+        </a>
+        <p class="footer-logo-desc">
+          {{ tagline() }} Real websites, hand-coded, built to last.
+        </p>
+        <div class="d-flex gap-3 mb-4">
+          <a [href]="githubUrl()" target="_blank" class="btn-theme-circle bg-dark text-light border border-secondary" aria-label="GitHub">
+            <i class="bi bi-github"></i>
+          </a>
+          <a [href]="twitterUrl()" target="_blank" class="btn-theme-circle bg-dark text-light border border-secondary" aria-label="Twitter">
+            <i class="bi bi-twitter-x"></i>
+          </a>
+          <a [href]="linkedinUrl()" target="_blank" class="btn-theme-circle bg-dark text-light border border-secondary" aria-label="LinkedIn">
+            <i class="bi bi-linkedin"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Services Links -->
+      <div class="col-lg-2 col-md-6 col-6 footer-link-group">
+        <h5>Capabilities</h5>
+        <ul>
+          @for (link of serviceLinks(); track link.path) {
+            <li>
+              <a [routerLink]="link.path">{{ link.label }}</a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- Company Links -->
+      <div class="col-lg-2 col-md-6 col-6 footer-link-group">
+        <h5>Studio</h5>
+        <ul>
+          @for (link of companyLinks(); track link.path) {
+            <li>
+              <a [routerLink]="link.path">{{ link.label }}</a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- Contact Info & Newsletter -->
+      <div class="col-lg-4 col-md-6">
+        <h5 class="text-light mb-3">Newsletter</h5>
+        <p class="small text-muted mb-3">Stay updated with hand-coded optimization secrets and web standards.</p>
+        <div class="input-group mb-4">
+          <input type="email" class="form-control bg-dark text-light border-secondary" placeholder="Email Address" aria-label="Email Address">
+          <button class="btn btn-theme-primary px-3" type="button" aria-label="Subscribe">
+            <i class="bi bi-send-fill"></i>
+          </button>
+        </div>
+        <div class="text-muted small">
+          <div class="mb-2"><i class="bi bi-envelope-fill me-2 text-secondary"></i> {{ contactEmail() }}</div>
+          <div class="mb-2"><i class="bi bi-telephone-fill me-2 text-secondary"></i> {{ phone() }}</div>
+          <div><i class="bi bi-geo-alt-fill me-2 text-secondary"></i> {{ address() }}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="row pt-4 border-top border-secondary align-items-center">
+      <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+        <p class="small mb-0">&copy; {{ currentYear() }} {{ companyName() }} Studio. All rights reserved. Hand-coded with pride.</p>
+      </div>
+      <div class="col-md-6 text-center text-md-end">
+        <div class="d-flex justify-content-center justify-content-md-end gap-3">
+          @for (link of legalLinks(); track link.path) {
+            <a [routerLink]="link.path" class="small text-muted text-decoration-none hover-text-primary">{{ link.label }}</a>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

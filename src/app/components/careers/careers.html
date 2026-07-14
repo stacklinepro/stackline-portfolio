@@ -1,0 +1,68 @@
+<div class="ambient-glow glow-top-left"></div>
+<div class="ambient-glow glow-bottom-right"></div>
+
+<!-- 1. CAREERS HERO -->
+<section class="section-100vh text-center">
+  <div class="container animate-fade-in-up">
+    <span class="badge bg-dark border border-secondary text-gradient-primary px-3 py-2 mb-3 rounded-pill uppercase fw-bold">
+      Careers
+    </span>
+    <h1 class="display-3 fw-bold text-white mb-4">
+      Join the <span class="text-gradient-theme">Studio</span>
+    </h1>
+    <p class="lead text-muted mx-auto mb-5" style="max-width: 700px;">
+      We don't hire people who copy-paste. We look for digital artisans who take pride in writing every line of code by hand.
+    </p>
+    <a href="#positions-list" class="btn-theme btn-theme-primary">
+      View Open Positions <i class="bi bi-chevron-down"></i>
+    </a>
+  </div>
+</section>
+
+<!-- 2. POSITIONS LIST -->
+<section id="positions-list" class="section-100vh">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title text-gradient-secondary">Available Roles</h2>
+      <p class="section-subtitle">
+        Help us build the fast, handcrafted web.
+      </p>
+    </div>
+
+    @if (appliedJob()) {
+      <div class="alert alert-success bg-dark border-success text-success text-center mb-5 p-4 rounded-4 animate-fade-in-up">
+        <i class="bi bi-patch-check-fill fs-3 me-2"></i> Application received for <strong>{{ appliedJob() }}</strong>! We will reach out to you shortly.
+      </div>
+    }
+
+    <div class="row g-4">
+      @for (pos of positions(); track pos.title) {
+        <div class="col-12 col-lg-4">
+          <div class="glass-card h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="badge bg-dark border border-secondary text-secondary px-3 py-1 rounded-pill small uppercase">
+                  {{ pos.location }}
+                </span>
+                <span class="small text-muted">{{ pos.type }}</span>
+              </div>
+              <h4 class="h5 text-white mb-3">{{ pos.title }}</h4>
+              <p class="small text-muted mb-4">{{ pos.desc }}</p>
+              
+              <h5 class="small text-white mb-2 fw-semibold">Requirements:</h5>
+              <ul class="small text-muted ps-3 mb-4">
+                @for (req of pos.requirements; track req) {
+                  <li class="mb-1">{{ req }}</li>
+                }
+              </ul>
+            </div>
+            
+            <button (click)="applyForJob(pos.title)" class="btn-theme btn-theme-primary w-100">
+              Apply Now <i class="bi bi-person-plus-fill"></i>
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,44 @@
+<div class="ambient-glow glow-top-left"></div>
+<div class="ambient-glow glow-bottom-right"></div>
+
+<!-- 1. PROCESS HERO -->
+<section class="section-100vh text-center">
+  <div class="container animate-fade-in-up">
+    <span class="badge bg-dark border border-secondary text-gradient-primary px-3 py-2 mb-3 rounded-pill uppercase fw-bold">
+      Our Method
+    </span>
+    <h1 class="display-3 fw-bold text-white mb-4">
+      The Hand-Crafted <span class="text-gradient-theme">Workflow</span>
+    </h1>
+    <p class="lead text-muted mx-auto mb-5" style="max-width: 700px;">
+      Explore our step-by-step custom coding pipeline. We don't drag blocks; we build digital structures.
+    </p>
+    <a href="#timeline" class="btn-theme btn-theme-primary">
+      Review Our Timeline <i class="bi bi-chevron-down"></i>
+    </a>
+  </div>
+</section>
+
+<!-- 2. TIMELINE SECTION -->
+<section id="timeline" class="section-100vh">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title text-gradient-secondary">Bespoke Production Timeline</h2>
+      <p class="section-subtitle">
+        How we take your ideas and convert them into clean, optimized code.
+      </p>
+    </div>
+
+    <div class="timeline-track">
+      @for (step of steps(); track step.step) {
+        <div class="timeline-step-item" [class.step-even]="$index % 2 === 1">
+          <div class="timeline-badge">{{ step.step }}</div>
+          <div class="timeline-step-content glass-card">
+            <h4 class="h5 text-white mb-2"><i class="bi" [class]="step.icon" class="me-2 text-primary"></i> {{ step.title }}</h4>
+            <p class="small text-muted mb-0">{{ step.desc }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
